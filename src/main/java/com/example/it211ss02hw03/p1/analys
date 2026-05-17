@@ -1,0 +1,8 @@
+- Vai trò của HTTP Status Codes: Các mã trạng thái HTTP là “ngôn ngữ chung” giữa server và client.
+Chúng cho biết kết quả của một request: thành công, lỗi, hoặc yêu cầu không hợp lệ
+- Ảnh hưởng của việc trả về null thay vì ResponseEntity với HttpStatus.NOT_FOUND: Nếu API trả về null
+hoặc {}, client không thể phân biệt được giữa trường hợp “không tìm thấy dữ liệu” và “server
+trả về dữ liệu rỗng”. Điều này gây khó khăn trong việc xử lý lỗi, dẫn đến trải nghiệm người dùng kém.
+- Jackson Dataformat XML cần thiết cho Content Negotiation: Khi có dependency này,
+Spring Boot sẽ tự động chuyển đổi object sang XML nếu client gửi header Accept: application/xml.
+Điều này đảm bảo API có thể phục vụ cả hệ thống mới (JSON) và hệ thống cũ (XML).
